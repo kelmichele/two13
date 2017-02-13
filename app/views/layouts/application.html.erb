@@ -1,14 +1,30 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>TwoThirteen</title>
+  	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+		<meta name="description" content= "<%= @page_description %>">
+
+    <title><%= @page_title  %> | TwoThirteen</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!--[if lt IE 9]>
+		  <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
+		  </script>
+		<![endif]-->
+
   </head>
 
   <body>
-    <%= yield %>
+    <header> <= render 'layouts/navigation'> </header>
+      <main role="main" class=" <%= controller_name %> <%= action_name %>">
+         <%= render 'layouts/messages' %>
+         <%= yield %>
+      </main>
+    <%= render 'layouts/footer' %>
   </body>
+
 </html>
